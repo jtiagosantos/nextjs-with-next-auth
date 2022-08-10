@@ -8,9 +8,9 @@ export default NextAuth({
       clientSecret: process.env.GITHUB_SECRET as string,
       authorization: {
         params: {
-          redirect_uri: 'http://localhost:3000/dashboard'
-        }
-      }
+          scope: 'read:user',
+        },
+      },
     }),
   ],
 });
