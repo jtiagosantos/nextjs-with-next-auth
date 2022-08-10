@@ -13,4 +13,9 @@ export default NextAuth({
       },
     }),
   ],
+  callbacks: {
+    async redirect() {
+      return 'http://localhost:3000/dashboard';
+    },
+  }
 });
