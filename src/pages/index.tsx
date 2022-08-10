@@ -2,7 +2,7 @@ import type { NextPage } from 'next';
 import { useSession, signIn } from 'next-auth/react';
 
 const Home: NextPage = () => {
-  const {  status } = useSession();
+  const { status } = useSession();
 
   return (
     <>
