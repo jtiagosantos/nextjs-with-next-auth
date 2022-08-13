@@ -7,7 +7,8 @@ const Home: NextPage = () => {
   return (
     <>
       <h1>Status: {status}</h1>
-      <button onClick={() => signIn('github')}>Sign In</button>
+      <button onClick={() => signIn('github')}>Sign In With Github</button>
+      <button onClick={() => signIn('google')}>Sign In With Google</button>
     </>
   );
 }

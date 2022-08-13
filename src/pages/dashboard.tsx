@@ -5,7 +5,7 @@ import { useSession, signOut } from 'next-auth/react';
 const Dashboard: NextPage = () => {
   const route = useRouter();
 
-  const { status } = useSession({
+  const { status, data } = useSession({
     required: true,
     onUnauthenticated() {
       route.push('/');
