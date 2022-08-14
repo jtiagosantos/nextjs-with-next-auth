@@ -25,7 +25,8 @@ export default NextAuth({
   ],
   callbacks: {
     async redirect() {
-      return 'http://localhost:3000/dashboard';
+      const url = process.env.REDIRECT_URL as string;
+      return url;
     },
   }
 });
