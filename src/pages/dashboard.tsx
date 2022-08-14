@@ -19,6 +19,7 @@ const Dashboard: NextPage = () => {
   return (
     <>
       <h1>Status: {status}</h1>
+      <h2>UserName: {data?.user?.name}</h2>
       <button onClick={() => signOut()}>Sign Out</button>
     </>
   );
