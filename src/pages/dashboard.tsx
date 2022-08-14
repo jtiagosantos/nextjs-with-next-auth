@@ -1,6 +1,16 @@
 import type { NextPage } from 'next';
 import { useRouter } from 'next/router';
 import { useSession, signOut } from 'next-auth/react';
+import { Power } from 'phosphor-react';
+
+//styles
+import {
+  Container,
+  Card,
+  Title,
+  UserName,
+  Button
+} from '../styles/components';
 
 const Dashboard: NextPage = () => {
   const route = useRouter();
@@ -12,16 +22,24 @@ const Dashboard: NextPage = () => {
     },
   });
 
-  if (status === 'loading') {
-    return <h1>Loading or not authenticated...</h1>
-  }
-
   return (
-    <>
-      <h1>Status: {status}</h1>
-      <h2>UserName: {data?.user?.name}</h2>
-      <button onClick={() => signOut()}>Sign Out</button>
-    </>
+    <Container>
+      {status === 'loading' && <Title>Loading or not authenticated...</Title> }
+
+      {!!data && (
+        <Card>
+          <Title>Status: {status}</Title>
+          <UserName>UserName: {data?.user?.name}</UserName>
+          <Button onClick={() => signOut()}>
+            <Power 
+              size={30}
+              color='#fA4D4D'
+              weight='bold'
+            />
+          </Button>
+        </Card>
+      )}
+    </Container>
   );
 }
 
